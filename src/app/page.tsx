@@ -21,7 +21,7 @@ export default function Home() {
       // Navigate to the API with redirect=1 to let the server issue the redirect
       window.location.href = `/api/resolve?input=${encodeURIComponent(input)}&redirect=1`;
       return;
-    } catch (error) {
+    } catch {
       setErrorMsg("Network error while resolving input");
     } finally {
       setIsForwarding(false);

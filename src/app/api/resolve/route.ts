@@ -50,7 +50,7 @@ export async function GET(req: NextRequest) {
     try {
       const file = await fs.readFile(filePath, "utf8");
       json = JSON.parse(file) as NetworkConfig;
-    } catch (err) {
+    } catch {
       return badRequest("Network config not found or invalid JSON", { id: a });
     }
 
@@ -67,7 +67,7 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json({ url: resolved, network: json.name });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Unexpected error" }, { status: 500 });
   }
 }
