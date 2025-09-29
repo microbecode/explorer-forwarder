@@ -51,6 +51,24 @@
   background-clip: text;
 }
 
+.subtitle {
+  margin: 0;
+  margin-top: -8px;
+  color: var(--foreground);
+  opacity: 0.8;
+}
+
+.subtitle a {
+  color: #0a66ff;
+  text-decoration: underline;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .subtitle a:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
 .description {
   font-size: 1.2rem;
   color: var(--foreground);

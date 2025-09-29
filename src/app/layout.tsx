@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Explorer Forwarder",
-  description: "A simple URL forwarder service",
+  title: "Explorer forwarder",
+  description: "A simple URL forwarder service based on ERC-7950",
 };
 
 export default function RootLayout({

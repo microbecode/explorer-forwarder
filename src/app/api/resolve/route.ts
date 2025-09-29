@@ -44,7 +44,7 @@ export async function GET(req: NextRequest) {
     // Construct absolute path to data file: data/<a>.json (at project root or under src?)
     // We'll use project root `/data` per user request
     const dataDir = path.join(process.cwd(), "data");
-    const filePath = path.join(dataDir, `${a}.json`);
+    const filePath = path.join(dataDir, `eip155-${a}.json`);
 
     let json: NetworkConfig;
     try {

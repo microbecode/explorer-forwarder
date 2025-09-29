@@ -38,6 +38,9 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>Explorer Forwarder</h1>
+        <p className={styles.subtitle}>
+          Based on <a href="https://github.com/ethereum/ERCs/blob/master/ERCS/erc-7950.md" target="_blank" rel="noopener noreferrer">ERC-7950</a>
+        </p>
         <p className={styles.description}>
           Enter input as a:b:c and click Forward to resolve and redirect
         </p>
