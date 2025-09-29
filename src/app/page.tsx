@@ -18,9 +18,21 @@ export default function Home() {
 
     setIsForwarding(true);
     try {
-      // Navigate to the API with redirect=1 to let the server issue the redirect
-      window.location.href = `/api/resolve?input=${encodeURIComponent(input)}&redirect=1`;
-      return;
+      // First resolve via API to catch and surface errors nicely in the UI
+      const res = await fetch(`/api/resolve?input=${encodeURIComponent(input)}`);
+      const data = await res.json();
+      if (!res.ok) {
+        const message = typeof data?.error === "string" ? data.error : "Failed to resolve input";
+        setErrorMsg(message);
+        return;
+      }
+      const targetUrl: string | undefined = data?.url;
+      if (!targetUrl) {
+        setErrorMsg("Resolver did not return a URL");
+        return;
+      }
+      // Navigate to the resolved URL
+      window.location.href = targetUrl;
     } catch {
       setErrorMsg("Network error while resolving input");
     } finally {
@@ -65,7 +77,7 @@ export default function Home() {
         </div>
         
         {errorMsg && (
-          <div className={styles.info}>
+          <div className={styles.error}>
             <p>{errorMsg}</p>
           </div>
         )}
