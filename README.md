@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Explorer Forwarder
 
-## Getting Started
+A simple URL forwarder based on [ERC‑7950](https://github.com/ethereum/ERCs/blob/master/ERCS/erc-7950.md).
 
-First, run the development server:
+### 1) How the UI operates (ERC‑7950)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Enter an input in the format `a:b:c` where:
+  - `a` = [EIP‑155](https://eips.ethereum.org/EIPS/eip-155) chain id (e.g. `1`, `10`, `137`, `42161`, `11155111`)
+  - `b` = value to inject into the route template (e.g. a transaction hash)
+  - `c` = route key to look up in the chain JSON. Currently only `tx` is supported.
+- The app resolves the route template from `data/eip155-<a>.json`, replaces `{value}` with `b`, and forwards to the resulting URL.
+
+Example: `1:0xabc...:tx` → opens `https://etherscan.io/tx/0xabc...`.
+
+### 2) Adding new chains (via PR)
+
+1. Create a new file under `data/` named `eip155-<chainId>.json`.
+2. Use the following syntax:
+
+```json
+{
+  "name": "Network Name",
+  "routes": {
+    "tx": "https://explorer.example/tx/{value}"
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. At minimum, include a `tx` route. You can add more keys later (e.g., `address`, `block`).
+4. Submit a pull request with the new file. Keep naming and structure consistent.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3) API route (direct use)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`GET /api/resolve?input=a:b:c`
 
-## Learn More
+- Resolves the given input and returns JSON:
 
-To learn more about Next.js, take a look at the following resources:
+```json
+{
+  "url": "https://...",
+  "network": "Ethereum Mainnet"
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- On error, returns status 400 with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```json
+{
+  "error": "Route key not found in network config"
+}
+```
 
-## Deploy on Vercel
+- To perform an immediate redirect instead, call:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`GET /api/resolve?input=a:b:c&redirect=1`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This issues a 307 redirect to the resolved URL.
+
+### 4) Run locally
+
+```bash
+npm install
+npm run dev
+# or
+yarn
+yarn dev
+```
+
+Then open `http://localhost:3000`.
