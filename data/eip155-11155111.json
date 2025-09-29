@@ -1,0 +1,8 @@
+{
+  "name": "Ethereum Sepolia",
+  "routes": {
+    "tx": "https://sepolia.etherscan.io/tx/{value}"
+  }
+}
+
+

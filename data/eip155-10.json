@@ -1,0 +1,8 @@
+{
+  "name": "OP Mainnet",
+  "routes": {
+    "tx": "https://optimistic.etherscan.io/tx/{value}"
+  }
+}
+
+

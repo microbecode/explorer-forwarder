@@ -1,0 +1,8 @@
+{
+  "name": "Avalanche C-Chain",
+  "routes": {
+    "tx": "https://snowtrace.io/tx/{value}"
+  }
+}
+
+

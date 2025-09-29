@@ -1,0 +1,8 @@
+{
+  "name": "Linea Mainnet",
+  "routes": {
+    "tx": "https://lineascan.build/tx/{value}"
+  }
+}
+
+

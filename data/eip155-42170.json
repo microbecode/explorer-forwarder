@@ -1,0 +1,8 @@
+{
+  "name": "Arbitrum Nova",
+  "routes": {
+    "tx": "https://nova.arbiscan.io/tx/{value}"
+  }
+}
+
+

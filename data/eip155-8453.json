@@ -1,0 +1,8 @@
+{
+  "name": "Base Mainnet",
+  "routes": {
+    "tx": "https://basescan.org/tx/{value}"
+  }
+}
+
+

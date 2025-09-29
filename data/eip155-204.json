@@ -1,0 +1,8 @@
+{
+  "name": "opBNB Mainnet",
+  "routes": {
+    "tx": "https://opbnbscan.com/tx/{value}"
+  }
+}
+
+

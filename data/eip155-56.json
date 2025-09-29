@@ -1,0 +1,8 @@
+{
+  "name": "BNB Smart Chain",
+  "routes": {
+    "tx": "https://bscscan.com/tx/{value}"
+  }
+}
+
+

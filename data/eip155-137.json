@@ -1,0 +1,8 @@
+{
+  "name": "Polygon PoS",
+  "routes": {
+    "tx": "https://polygonscan.com/tx/{value}"
+  }
+}
+
+

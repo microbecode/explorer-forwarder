@@ -1,0 +1,8 @@
+{
+  "name": "Mantle Mainnet",
+  "routes": {
+    "tx": "https://mantlescan.xyz/tx/{value}"
+  }
+}
+
+

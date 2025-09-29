@@ -1,0 +1,8 @@
+{
+  "name": "Arbitrum One",
+  "routes": {
+    "tx": "https://arbiscan.io/tx/{value}"
+  }
+}
+
+

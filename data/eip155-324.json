@@ -1,0 +1,8 @@
+{
+  "name": "zkSync Era Mainnet",
+  "routes": {
+    "tx": "https://explorer.zksync.io/tx/{value}"
+  }
+}
+
+
