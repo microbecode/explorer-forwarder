@@ -1,0 +1,8 @@
+{
+  "name": "Ethereum Mainnet",
+  "routes": {
+    "tx": "https://etherscan.io/tx/{value}"
+  }
+}
+
+
