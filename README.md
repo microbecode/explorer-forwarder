@@ -1,6 +1,6 @@
 ## Explorer Forwarder
 
-A simple URL forwarder based on [ERC‑7950](https://github.com/ethereum/ERCs/blob/master/ERCS/erc-7950.md).
+A simple URL forwarder based on [ERC‑7950](https://eips.ethereum.org/EIPS/eip-7950).
 
 ### 1) How the UI operates (ERC‑7950)
 
@@ -59,9 +59,6 @@ This issues a 307 redirect to the resolved URL.
 ### 4) Run locally
 
 ```bash
-npm install
-npm run dev
-# or
 yarn
 yarn dev
 ```
