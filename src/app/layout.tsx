@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
+  other: {
+    "og:image:width": "1200",
+    "og:image:height": "630",
+  },
   twitter: {
     card: "summary_large_image",
     title: "Explorer forwarder",
