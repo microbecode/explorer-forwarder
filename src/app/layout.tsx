@@ -15,6 +15,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Explorer forwarder",
   description: "A simple URL forwarder service based on ERC-7950",
+  openGraph: {
+    title: "Explorer forwarder",
+    description: "A simple URL forwarder service based on ERC-7950",
+    images: [
+      {
+        url: "/metaimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Explorer forwarder - ERC-7950 based URL forwarder",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Explorer forwarder",
+    description: "A simple URL forwarder service based on ERC-7950",
+    images: ["/metaimage.png"],
+  },
 };
 
 export default function RootLayout({
