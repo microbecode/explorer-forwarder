@@ -97,7 +97,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <p>
-          Find more info at the project's{" "}
+          Find more info at the project&apos;s{" "}
           <a
             href="https://github.com/microbecode/explorer-forwarder"
             target="_blank"

@@ -13,6 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "production"
+      ? "https://explorer-forwarder.vercel.app"
+      : "http://localhost:3000"
+  ),
   title: "Explorer forwarder",
   description: "A simple URL forwarder service based on ERC-7950",
   openGraph: {
